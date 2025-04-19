@@ -38,7 +38,11 @@ public class VariablesTheme {
         System.out.println("Стоимость товаров со скидкой = " + commonPriceWithDiscountBd);
 
         System.out.println("\n2. ВЫВОД ASCII-ГРАФИКИ");
-
+        System.out.println("                     /\\");
+        System.out.println("   J    a  v     v  /  \\");
+        System.out.println("   J   a a  v   v  /_() \\");
+        System.out.println("J  J  aaaaa  V V  /      \\");
+        System.out.println(" JJ  a     a  V  /___/\\___\\");
 
         System.out.println("\n3. ТЕСТИРОВАНИЕ ДАТЧИКОВ ПЕРЕД ЗАПУСКОМ РАКЕТЫ");
 
