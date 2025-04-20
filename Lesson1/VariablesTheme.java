@@ -133,7 +133,15 @@ public class VariablesTheme {
         System.out.println("\nМетод: побитовая операция ^\nРезультат: A1 = " + a1 + ", B1 = " + b1);
 
         System.out.println("\n5. ДЕКОДИРОВАНИЕ СООБЩЕНИЯ");
-
+        int var1 = 1055;
+        int var2 = 1088;
+        int var3 = 1080;
+        int var4 = 1074;
+        int var5 = 1077;
+        int var6 = 1090;
+        System.out.printf("%s%15s%15s%15s%15s%15s%15s", "ACII-коды: ", var1, var2, var3, var4, var5, var6);
+        System.out.printf("\n%s%14s%15s%15s%15s%15s%16s", "Расшифровка:", (char) var1, (char) var2,
+                (char) var3, (char) var4, (char) var5, (char) var6 + "\n");
 
         System.out.println("\n6. АНАЛИЗ КОДА ТОВАРА");
 
