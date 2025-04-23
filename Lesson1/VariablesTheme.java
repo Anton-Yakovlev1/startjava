@@ -168,6 +168,14 @@ public class VariablesTheme {
                 "\nКонтрольная сумма = " + controlSum + "\nПроверочный код = " + checkCode);
 
         System.out.println("\n7. ВЫВОД ПАРАМЕТРОВ JVM И ОС");
+        System.out.println("Доступное число ядер: " + Runtime.getRuntime().availableProcessors());
+        System.out.println("Используемая память: " + (Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory()) / 1024 + " Мб");
+        System.out.println("Свободная память: " + Runtime.getRuntime().freeMemory() / 1024 + " Мб");
+        System.out.println("Максимально доступная память: " + Runtime.getRuntime().maxMemory() / 1024 + " Мб");
+        System.out.println("Системный диск: " + System.getProperty("user.home").substring(0, 1));
+        System.out.println("Версия ОС: " + System.getProperty("os.version"));
+        System.out.println("Версия Java: " + System.getProperty("java.version"));
+        System.out.println("Сепаратор: " + System.getProperty("path.separator"));
 
 
         System.out.println("\n8. ЗАМЕР ВРЕМЕНИ РАБОТЫ КОДА");
