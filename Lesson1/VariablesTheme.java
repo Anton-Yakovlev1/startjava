@@ -46,7 +46,8 @@ public class VariablesTheme {
         System.out.println("Сумма скидки = " + discountBd);
 
         // Стоимость товаров со скидкой
-        BigDecimal commonPriceWithDiscountBd = commonPriceBd.subtract(discountBd).setScale(2, RoundingMode.HALF_UP);
+        BigDecimal commonPriceWithDiscountBd = commonPriceBd.subtract(discountBd).
+                setScale(2, RoundingMode.HALF_UP);
         System.out.println("Стоимость товаров со скидкой = " + commonPriceWithDiscountBd);
 
         System.out.println("\n2. ВЫВОД ASCII-ГРАФИКИ");
@@ -145,6 +146,26 @@ public class VariablesTheme {
 
         System.out.println("\n6. АНАЛИЗ КОДА ТОВАРА");
 
+        // Код товара
+        int productCode = 123;
+
+        // Категория товара
+        int productCategory = productCode / productCode;
+
+        // Подкатегория
+        int subcategory = (productCode / 3) % 3;
+
+        // Тип упаковки
+        int packageType = productCode % 4;
+
+        // Контрольная сумма
+        int controlSum = productCategory + subcategory + packageType;
+
+        // Проверочный код
+        int checkCode = productCategory * subcategory * packageType;
+        System.out.println("Код товара: " + productCode + "\n  категория товара - " + productCategory +
+                "\n  подкатегория - " + subcategory + "\n  тип упаковки - " + packageType +
+                "\nКонтрольная сумма = " + controlSum + "\nПроверочный код = " + checkCode);
 
         System.out.println("\n7. ВЫВОД ПАРАМЕТРОВ JVM И ОС");
 
