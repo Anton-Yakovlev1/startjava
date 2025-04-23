@@ -1,8 +1,14 @@
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 
 public class VariablesTheme {
     public static void main(String[] args) {
+        final long start = System.nanoTime();
+        final DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm:ss.SSS");
+        final LocalTime localTimeStart = LocalTime.now();
+
         System.out.println("1. РАСЧЕТ СТОИМОСТИ ТОВАРА");
         System.out.println("Первый вариант решения:");
 
@@ -46,8 +52,8 @@ public class VariablesTheme {
         System.out.println("Сумма скидки = " + discountBd);
 
         // Стоимость товаров со скидкой
-        BigDecimal commonPriceWithDiscountBd = commonPriceBd.subtract(discountBd).
-                setScale(2, RoundingMode.HALF_UP);
+        BigDecimal commonPriceWithDiscountBd = commonPriceBd.subtract(discountBd)
+                .setScale(2, RoundingMode.HALF_UP);
         System.out.println("Стоимость товаров со скидкой = " + commonPriceWithDiscountBd);
 
         System.out.println("\n2. ВЫВОД ASCII-ГРАФИКИ");
@@ -87,7 +93,7 @@ public class VariablesTheme {
         System.out.println("-1: " + coveredDistanceDecrement);
 
         // Время с момента старта
-        long timeSinceStart = 9223372036854775807l;
+        long timeSinceStart = 9223372036854775807L;
         System.out.println("\n[Время с момента старта, сек]\n" +
                 "Исходное: " + timeSinceStart);
         long timeSinceStartIncrement = ++timeSinceStart;
@@ -169,15 +175,35 @@ public class VariablesTheme {
 
         System.out.println("\n7. ВЫВОД ПАРАМЕТРОВ JVM И ОС");
         System.out.println("Доступное число ядер: " + Runtime.getRuntime().availableProcessors());
-        System.out.println("Используемая память: " + (Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory()) / 1024 + " Мб");
+        System.out.println("Используемая память: " + (Runtime.getRuntime().totalMemory() - Runtime
+                .getRuntime().freeMemory()) / 1024 + " Мб");
         System.out.println("Свободная память: " + Runtime.getRuntime().freeMemory() / 1024 + " Мб");
-        System.out.println("Максимально доступная память: " + Runtime.getRuntime().maxMemory() / 1024 + " Мб");
-        System.out.println("Системный диск: " + System.getProperty("user.home").substring(0, 1));
-        System.out.println("Версия ОС: " + System.getProperty("os.version"));
-        System.out.println("Версия Java: " + System.getProperty("java.version"));
-        System.out.println("Сепаратор: " + System.getProperty("path.separator"));
+        System.out.println("Максимально доступная память: " + Runtime.getRuntime().maxMemory() / 1024 +
+                " Мб");
 
+        // Системный диск
+        char systemDrive = System.getProperty("user.home").charAt(0);
+
+        // Версия ОС
+        double osVersion = Double.parseDouble(System.getProperty("os.version"));
+
+        // Версия Java
+        int javaVersion = Integer.parseInt(System.getProperty("java.version"));
+
+        // Сепаратор (символ разделения пути)
+        char separator = System.getProperty("path.separator").charAt(0);
+        System.out.println("Системный диск: " + systemDrive);
+        System.out.println("Версия ОС: " + osVersion);
+        System.out.println("Версия Java: " + javaVersion);
+        System.out.println("Сепаратор: " + separator);
 
         System.out.println("\n8. ЗАМЕР ВРЕМЕНИ РАБОТЫ КОДА");
+        long finish = System.nanoTime();
+        BigDecimal result = new BigDecimal((double) (finish - start) / 1000000000)
+                .setScale(3, RoundingMode.HALF_UP);
+        LocalTime localTimeEnd = LocalTime.now();
+        System.out.println("Старт проверки: " + dtf.format(localTimeStart));
+        System.out.println("Финиш проверки: " + dtf.format(localTimeEnd));
+        System.out.printf("%s%11s", "Время работы: ", result + " сек");
     }
 }
