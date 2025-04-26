@@ -40,14 +40,14 @@ public class VariablesTheme {
         System.out.println(" JJ  a     a  V  /___/\\___\\");
 
         System.out.println("\n3. ТЕСТИРОВАНИЕ ДАТЧИКОВ ПЕРЕД ЗАПУСКОМ РАКЕТЫ");
-        byte temp = 127;
+        byte temp = Byte.MAX_VALUE;
         System.out.println("[Температура, °C]\n" +
                 "Исходное: " + temp);
         ++temp;
         System.out.println("+1: " + temp);
         --temp;
         System.out.println("-1: " + temp);
-        short pressure = 32767;
+        short pressure = Short.MAX_VALUE;
         System.out.println("\n[Давление, Па]\n" +
                 "Исходное: " + pressure);
         ++pressure;
@@ -61,14 +61,14 @@ public class VariablesTheme {
         System.out.println("+1: " + coveredDistance);
         --coveredDistance;
         System.out.println("-1: " + coveredDistance);
-        long timeSinceStart = 9223372036854775807L;
+        long timeSinceStart = Long.MAX_VALUE;
         System.out.println("\n[Время с момента старта, сек]\n" +
                 "Исходное: " + timeSinceStart);
         ++timeSinceStart;
         System.out.println("+1: " + timeSinceStart);
         --timeSinceStart;
         System.out.println("-1: " + timeSinceStart);
-        char systemStatusCode = 65535;
+        char systemStatusCode = Character.MAX_VALUE;
         System.out.println("\n[Код состояния системы]\n" +
                 "Исходное: " + (int) systemStatusCode);
         ++systemStatusCode;
