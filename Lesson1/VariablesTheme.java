@@ -68,13 +68,13 @@ public class VariablesTheme {
         System.out.println("+1: " + timeSinceStart);
         --timeSinceStart;
         System.out.println("-1: " + timeSinceStart);
-        char systemStatusCode = (char) 65535;
+        char systemStatusCode = 65535;
         System.out.println("\n[Код состояния системы]\n" +
-                "Исходное: " + systemStatusCode);
+                "Исходное: " + (int) systemStatusCode);
         ++systemStatusCode;
-        System.out.println("+1: " + systemStatusCode);
+        System.out.println("+1: " + (int) systemStatusCode);
         --systemStatusCode;
-        System.out.println("-1: " + systemStatusCode);
+        System.out.println("-1: " + (int) systemStatusCode);
 
         System.out.println("\n4. ПЕРЕСТАНОВКА ЗНАЧЕНИЙ ЯЧЕЕК В ТАБЛИЦЕ");
 
