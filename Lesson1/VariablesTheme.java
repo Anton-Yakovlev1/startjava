@@ -106,32 +106,33 @@ public class VariablesTheme {
         int symbol4 = 1074;
         int symbol5 = 1077;
         int symbol6 = 1090;
-        System.out.printf("%s%5s%5s%5s%5s%5s%5s", "ACII-коды: ", symbol1, symbol2, symbol3, symbol4, symbol5,
-                symbol6);
-        System.out.printf("\n%s%3c%5c%5c%5c%5c%5c\n", "Расшифровка: ", symbol1, symbol2, symbol3, symbol4,
-                symbol5, symbol6);
+        System.out.printf("%s%5s%5s%5s%5s%5s%5s", "ACII-коды: ",
+                symbol1, symbol2, symbol3, symbol4, symbol5, symbol6);
+        System.out.printf("\n%s%3c%5c%5c%5c%5c%5c\n", "Расшифровка: ",
+                symbol1, symbol2, symbol3, symbol4, symbol5, symbol6);
 
         System.out.println("\n6. АНАЛИЗ КОДА ТОВАРА");
-        int productCode = 458;
+        int productCode = 379;
         System.out.println("Код товара: " + productCode);
         int packageType = productCode % 10;
-        productCode /= 10;
-        int subcategory = productCode % 10;
-        productCode /= 10;
-        int productCategory = productCode % 10;
-        int controlSum = productCategory + subcategory + packageType;
-        int checkCode = productCategory * subcategory * packageType;
+        int subcategory = (productCode / 10) % 10;
+        int productCategory = productCode / 100;
+        int checksum = productCategory + subcategory + packageType;
+        int verificationСode = productCategory * subcategory * packageType;
         System.out.println("  категория товара - " + productCategory +
                 "\n  подкатегория - " + subcategory + "\n  тип упаковки - " + packageType +
-                "\nКонтрольная сумма = " + controlSum + "\nПроверочный код = " + checkCode);
+                "\nКонтрольная сумма = " + checksum + "\nПроверочный код = " + verificationСode);
 
         System.out.println("\n7. ВЫВОД ПАРАМЕТРОВ JVM И ОС");
         Runtime getRuntime = Runtime.getRuntime();
+        int oneMb = 1024 * 1024;
         System.out.println("Доступное число ядер: " + getRuntime.availableProcessors());
-        System.out.println("Используемая память: " + (getRuntime.totalMemory() -
-                getRuntime.freeMemory()) / (1024 * 1024) + " Мб");
-        System.out.println("Свободная память: " + getRuntime.freeMemory() / (1024 * 1024) + " Мб");
-        System.out.println("Максимально доступная память: " + getRuntime.maxMemory() / (1024 * 1024) + " Мб");
+        System.out.println("Используемая память: " +
+                (getRuntime.totalMemory() - getRuntime.freeMemory()) / oneMb + " Мб");
+        System.out.println("Свободная память: " +
+                getRuntime.freeMemory() / oneMb + " Мб");
+        System.out.println("Максимально доступная память: " +
+                getRuntime.maxMemory() / oneMb + " Мб");
         char systemDrive = System.getProperty("user.home").charAt(0);
         double osVersion = Double.parseDouble(System.getProperty("os.version"));
         int javaVersion = Integer.parseInt(System.getProperty("java.version"));
@@ -144,11 +145,10 @@ public class VariablesTheme {
         System.out.println("\n8. ЗАМЕР ВРЕМЕНИ РАБОТЫ КОДА");
         final DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm:ss.SSS");
         long finish = System.nanoTime();
-        BigDecimal result = new BigDecimal((double) (finish - start) / 1000000000)
-                .setScale(3, RoundingMode.HALF_UP);
+        float result = (float) (finish - start) / 1000000000;
         LocalTime localTimeEnd = LocalTime.now();
         System.out.println("Старт проверки: " + dtf.format(localTimeStart));
         System.out.println("Финиш проверки: " + dtf.format(localTimeEnd));
-        System.out.printf("%s%11s", "Время работы: ", result + " сек");
+        System.out.printf("Время работы: %.3f сек", result);
     }
 }
