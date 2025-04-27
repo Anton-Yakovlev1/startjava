@@ -98,6 +98,23 @@ public class IfElseStatementTheme {
         }
 
         System.out.println("\n6. ПОДСЧЕТ НАЧИСЛЕННЫХ БАНКОМ %");
+        float deposit = 321123.79f;
+        if (deposit < 100000) {
+            float depositWithInterest = deposit + (deposit * 0.05f);
+            System.out.println("Сумма вклада: " + deposit +
+            "\nСумма начисленного %: " + (depositWithInterest - deposit) +
+            "\nИтоговая сумма с %: " + depositWithInterest);
+        } else if (deposit > 300000) {
+            float depositWithInterest = deposit + (deposit * 0.1f);
+            System.out.println("Сумма вклада: " + deposit +
+            "\nСумма начисленного %: " + (depositWithInterest - deposit) +
+            "\nИтоговая сумма с %: " + depositWithInterest);
+        } else {
+            float depositWithInterest = deposit + (deposit * 0.07f);
+            System.out.println("Сумма вклада: " + deposit +
+            "\nСумма начисленного %: " + (depositWithInterest - deposit) +
+            "\nИтоговая сумма с %: " + depositWithInterest);
+        }
 
         System.out.println("\n7. ОПРЕДЕЛЕНИЕ ОЦЕНКИ ПО ПРЕДМЕТАМ");
 
