@@ -118,10 +118,10 @@ public class VariablesTheme {
         int subcategory = (productCode / 10) % 10;
         int productCategory = productCode / 100;
         int checksum = productCategory + subcategory + packageType;
-        int verificationСode = productCategory * subcategory * packageType;
+        int verificationCode = productCategory * subcategory * packageType;
         System.out.println("  категория товара - " + productCategory +
                 "\n  подкатегория - " + subcategory + "\n  тип упаковки - " + packageType +
-                "\nКонтрольная сумма = " + checksum + "\nПроверочный код = " + verificationСode);
+                "\nКонтрольная сумма = " + checksum + "\nПроверочный код = " + verificationCode);
 
         System.out.println("\n7. ВЫВОД ПАРАМЕТРОВ JVM И ОС");
         Runtime getRuntime = Runtime.getRuntime();
