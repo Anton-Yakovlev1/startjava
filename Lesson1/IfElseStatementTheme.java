@@ -103,66 +103,45 @@ public class IfElseStatementTheme {
         boolean thirdGrade = (serialNum % 10) == (officeComputerNum % 10) ? true : false;
         if (firstGrade == false && secondGrade == false && thirdGrade == false) {
             System.out.printf("[№%s]: оборудование не идентифицировано\n", officeComputerNum);
-        } else if (firstGrade == true && secondGrade == false && thirdGrade == false) {
-            System.out.printf("Нет полного совпадения:" +
-                    "\nБаза данных: [№%s]\nФактический: [№%d%c%c]\n",
-                    serialNum, (officeComputerNum / 100), '_', '_');
-        } else if (firstGrade == true && secondGrade == true && thirdGrade == false) {
-            System.out.printf("Нет полного совпадения:" +
-                    "\nБаза данных: [№%s]\nФактический: [№%d%d%c]\n",
-                    serialNum, (officeComputerNum / 100), ((officeComputerNum / 10) % 10), '_');
-        } else if (firstGrade == false && secondGrade == true && thirdGrade == false) {
-            System.out.printf("Нет полного совпадения:" +
-                    "\nБаза данных: [№%s]\nФактический: [№%c%d%c]\n",
-                    serialNum, '_', ((officeComputerNum / 10) % 10), '_');
-        } else if (firstGrade == false && secondGrade == true && thirdGrade == true) {
-            System.out.printf("Нет полного совпадения:" +
-                    "\nБаза данных: [№%s]\nФактический: [№%c%d%d]\n",
-                    serialNum, '_', ((officeComputerNum / 10) % 10), (officeComputerNum % 10));
-        } else if (firstGrade == false && secondGrade == false && thirdGrade == true) {
-            System.out.printf("Нет полного совпадения:" +
-                    "\nБаза данных: [№%s]\nФактический: [№%c%c%d]\n",
-                    serialNum, '_', '_', (officeComputerNum % 10));
-        } else if (firstGrade == true && secondGrade == false && thirdGrade == true) {
-            System.out.printf("Нет полного совпадения:" +
-                    "\nБаза данных: [№%s]\nФактический: [№%c%d%d]\n",
-                    serialNum, (officeComputerNum / 100), '_', (officeComputerNum % 10));
-        } else {
+        } else if (firstGrade == true && secondGrade == true && thirdGrade == true) {
             System.out.printf("[№%s]: компьютер на 3-м этаже в кабинете 2\n", officeComputerNum);
+        } else {
+            System.out.printf("Нет полного совпадения:" +
+                    "\nБаза данных: [№%s]\nФактический: [№%s]\n",
+                    serialNum, officeComputerNum);
         }
 
         System.out.println("\n6. ПОДСЧЕТ НАЧИСЛЕННЫХ БАНКОМ %");
 
         // Первый способ
         float deposit = 321123.79f;
-        float depositWithInterest;
+        float interest;
         if (deposit < 100000) {
-            depositWithInterest = deposit + (deposit * 0.05f);
+            interest = 0.05f;
         } else if (deposit > 300000) {
-            depositWithInterest = deposit + (deposit * 0.1f);
+            interest = 0.1f;
         } else {
-            depositWithInterest = deposit + (deposit * 0.07f);
+            interest = 0.07f;
         }
         System.out.println("Сумма вклада: " + deposit +
-                    "\nСумма начисленного %: " + (depositWithInterest - deposit) +
-                    "\nИтоговая сумма с %: " + depositWithInterest);
+                    "\nСумма начисленного %: " + (deposit * interest) +
+                    "\nИтоговая сумма с %: " + (deposit + (deposit * interest)));
 
         // Второй способ
         BigDecimal depositBd = new BigDecimal("321123.79");
-        BigDecimal depositWithInterestBd;
+        BigDecimal interestBd;
         if (depositBd.compareTo(BigDecimal.valueOf(100000)) == -1) {
-            depositWithInterestBd = depositBd.add(depositBd.multiply(BigDecimal.valueOf(0.05)))
-                    .setScale(2, RoundingMode.HALF_UP);
+            interestBd = new BigDecimal("0.05");
         } else if (depositBd.compareTo(BigDecimal.valueOf(300000)) == 1) {
-            depositWithInterestBd = depositBd.add(depositBd.multiply(BigDecimal.valueOf(0.1)))
-                    .setScale(2, RoundingMode.HALF_UP);
+            interestBd = new BigDecimal("0.1");
         } else {
-            depositWithInterestBd = depositBd.add(depositBd.multiply(BigDecimal.valueOf(0.07)))
-                    .setScale(2, RoundingMode.HALF_UP);
+            interestBd = new BigDecimal("0.07");
         }
         System.out.println("\nСумма вклада: " + depositBd +
-                    "\nСумма начисленного %: " + depositWithInterestBd.subtract(depositBd) +
-                    "\nИтоговая сумма с %: " + depositWithInterestBd);
+                    "\nСумма начисленного %: " + depositBd.multiply(interestBd)
+                    .setScale(2, RoundingMode.HALF_UP) +
+                    "\nИтоговая сумма с %: " + depositBd.add(depositBd.multiply(interestBd))
+                    .setScale(2, RoundingMode.HALF_UP));
 
         System.out.println("\n7. ОПРЕДЕЛЕНИЕ ОЦЕНКИ ПО ПРЕДМЕТАМ");
         int historyPercent = 59;
@@ -195,10 +174,9 @@ public class IfElseStatementTheme {
         BigDecimal monthRevenue = new BigDecimal("13025.233");
         BigDecimal monthRent = new BigDecimal("5123.018");
         BigDecimal monthCost = new BigDecimal("9001.729");
-        BigDecimal profit = monthRevenue.multiply(BigDecimal.valueOf(12))
-                    .subtract(monthRent.multiply(BigDecimal.valueOf(12))
-                    .add(monthCost.multiply(BigDecimal.valueOf(12))));
-        if (profit.compareTo(BigDecimal.valueOf(0)) == 1) {
+        BigDecimal profit = (monthRevenue.subtract((monthRent).add(monthCost)))
+                .multiply(BigDecimal.valueOf(12));
+        if (profit.compareTo(BigDecimal.ZERO) == 1) {
             System.out.println("Прибыль за год: +" + profit);
         } else {
             System.out.println("Прибыль за год: " + profit);
