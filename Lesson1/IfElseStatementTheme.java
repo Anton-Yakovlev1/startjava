@@ -78,7 +78,7 @@ public class IfElseStatementTheme {
 
         System.out.println("\n5. ИНВЕНТАРИЗАЦИЯ");
         int serialNum = 936;
-        int officeComputerNum = 756;
+        int officeComputerNum = 986;
 
         // Первый вариант решения выглядит более коротким, решил оставить
         /*
@@ -97,51 +97,59 @@ public class IfElseStatementTheme {
             System.out.println(result);
         }
         */
-        boolean firstGrade = (serialNum / 100) == (officeComputerNum / 100) ? true : false;
-        boolean secondGrade = ((serialNum / 10) % 10) == ((officeComputerNum / 10) % 10) ?
-                true : false;
-        boolean thirdGrade = (serialNum % 10) == (officeComputerNum % 10) ? true : false;
+        boolean firstGrade = (serialNum / 100) == (officeComputerNum / 100);
+        boolean secondGrade = ((serialNum / 10) % 10) == ((officeComputerNum / 10) % 10);
+        boolean thirdGrade = (serialNum % 10) == (officeComputerNum % 10);
         if (firstGrade == false && secondGrade == false && thirdGrade == false) {
             System.out.printf("[№%s]: оборудование не идентифицировано\n", officeComputerNum);
         } else if (firstGrade == true && secondGrade == true && thirdGrade == true) {
             System.out.printf("[№%s]: компьютер на 3-м этаже в кабинете 2\n", officeComputerNum);
         } else {
-            System.out.printf("Нет полного совпадения:" +
-                    "\nБаза данных: [№%s]\nФактический: [№%s]\n",
-                    serialNum, officeComputerNum);
+            int firstDigit = officeComputerNum / 100;
+            if (!firstGrade) {
+                firstDigit = '_';
+            }
+            int secondDigit = (officeComputerNum / 10) % 10;
+            if (!secondGrade) {
+                secondDigit = '_';
+            }
+            int thirdDigit = officeComputerNum % 10;
+            if (!thirdGrade) {
+                thirdDigit = '_';
+            }
+            String result = String.format("Нет полного совпадения:" +
+                    "\nБаза данных: [№%s]\nФактический: [№%s%s%s]\n",
+                    serialNum, firstDigit, secondDigit, thirdDigit).replace("95", "_");
+            System.out.println(result);
         }
 
         System.out.println("\n6. ПОДСЧЕТ НАЧИСЛЕННЫХ БАНКОМ %");
 
         // Первый способ
         float deposit = 321123.79f;
-        float interest;
+        float interest = 0.07f;
         if (deposit < 100000) {
             interest = 0.05f;
         } else if (deposit > 300000) {
             interest = 0.1f;
-        } else {
-            interest = 0.07f;
         }
         System.out.println("Сумма вклада: " + deposit +
-                    "\nСумма начисленного %: " + (deposit * interest) +
-                    "\nИтоговая сумма с %: " + (deposit + (deposit * interest)));
+                "\nСумма начисленного %: " + (deposit * interest) +
+                "\nИтоговая сумма с %: " + (deposit + (deposit * interest)));
 
         // Второй способ
         BigDecimal depositBd = new BigDecimal("321123.79");
-        BigDecimal interestBd;
+        BigDecimal interestBd = new BigDecimal("0.07");;
         if (depositBd.compareTo(BigDecimal.valueOf(100000)) == -1) {
             interestBd = new BigDecimal("0.05");
         } else if (depositBd.compareTo(BigDecimal.valueOf(300000)) == 1) {
             interestBd = new BigDecimal("0.1");
-        } else {
-            interestBd = new BigDecimal("0.07");
         }
         System.out.println("\nСумма вклада: " + depositBd +
-                    "\nСумма начисленного %: " + depositBd.multiply(interestBd)
-                    .setScale(2, RoundingMode.HALF_UP) +
-                    "\nИтоговая сумма с %: " + depositBd.add(depositBd.multiply(interestBd))
-                    .setScale(2, RoundingMode.HALF_UP));
+                "\nСумма начисленного %: " + depositBd.multiply(interestBd)
+                .setScale(2, RoundingMode.HALF_UP) +
+                "\nИтоговая сумма с %: " + depositBd.add(depositBd.multiply(interestBd))
+                .setScale(2, RoundingMode.HALF_UP));
 
         System.out.println("\n7. ОПРЕДЕЛЕНИЕ ОЦЕНКИ ПО ПРЕДМЕТАМ");
         int historyPercent = 59;
