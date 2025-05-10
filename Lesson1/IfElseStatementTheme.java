@@ -87,12 +87,11 @@ public class IfElseStatementTheme {
         } else if (isFirstGradeEqual && isSecondGradeEqual && isThirdGradeEqual) {
             System.out.printf("[№%s]: компьютер на 3-м этаже в кабинете 2\n", officeComputerNum);
         } else {
-            char firstDigit = isFirstGradeEqual ? (char) ('0' + (officeComputerNum / 100)) : '_';
-            char secondDigit = isSecondGradeEqual ? (char) ('0' + ((officeComputerNum / 10) % 10)) : '_';
-            char thirdDigit = isThirdGradeEqual ? (char) ('0' + (officeComputerNum % 10)) : '_';
             System.out.printf("Нет полного совпадения:" +
                     "\nБаза данных: [№%s]\nФактический: [№%c%c%c]\n",
-                    serialNum, firstDigit, secondDigit, thirdDigit);
+                    serialNum, isFirstGradeEqual ? ('0' + (officeComputerNum / 100)) : '_',
+                    isSecondGradeEqual ? ('0' + ((officeComputerNum / 10) % 10)) : '_',
+                    isThirdGradeEqual ? ('0' + (officeComputerNum % 10)) : '_');
         }
 
         System.out.println("\n6. ПОДСЧЕТ НАЧИСЛЕННЫХ БАНКОМ %");
