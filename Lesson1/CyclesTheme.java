@@ -87,5 +87,38 @@ public class CyclesTheme {
             }
             System.out.println();
         }
+
+        System.out.println("\n5. ВЫВОД ЧИСЕЛ МЕЖДУ MIN И MAX");
+        int a = 10;
+        int b = 5;
+        int c = -1;
+        int max = a;
+        if (b > max) {
+            max = b;
+        }
+        if (c > max) {
+            max = c;
+        }
+        int min = a;
+        if (b < min) {
+            min = b;
+        }
+        if (c < min) {
+            min = c;
+        }
+        for (int i = max - 1; i >= min + 1; i--) {
+            System.out.printf("%s ", i);
+        }
+
+        System.out.println("\n6. РАЗНЫЕ ОПЕРАЦИИ НАД ЧИСЛОМ");
+        int number = 2234321;
+        System.out.println("Исходное число: " + number);
+        int reversed = 0;
+        while (number != 0) {
+            int digit = number % 10; 
+            reversed = reversed * 10 + digit; 
+            number /= 10;
+        }
+        System.out.println("Число в обратном порядке: " + reversed);
     }
 }
