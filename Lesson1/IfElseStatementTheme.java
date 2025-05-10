@@ -79,48 +79,20 @@ public class IfElseStatementTheme {
         System.out.println("\n5. ИНВЕНТАРИЗАЦИЯ");
         int serialNum = 936;
         int officeComputerNum = 986;
-
-        // Первый вариант решения выглядит более коротким, решил оставить
-        /*
-        int firstGrade = (serialNum / 100) == (officeComputerNum / 100) ? (serialNum / 100) : -1;
-        int secondGrade = ((serialNum / 10) % 10) == ((officeComputerNum / 10) % 10) ?
-                ((serialNum / 10) % 10) : -1;
-        int thirdGrade = (serialNum % 10) == (officeComputerNum % 10) ? (serialNum % 10) : -1;
-        if (serialNum == officeComputerNum) {
-            System.out.printf("[№%s]: компьютер на 3-м этаже в кабинете 2\n", officeComputerNum);
-        } else if (firstGrade == -1 && secondGrade == -1 && thirdGrade == -1) {
+        boolean isFirstGradeEqual = (serialNum / 100) == (officeComputerNum / 100);
+        boolean isSecondGradeEqual = ((serialNum / 10) % 10) == ((officeComputerNum / 10) % 10);
+        boolean isThirdGradeEqual = (serialNum % 10) == (officeComputerNum % 10);
+        if (!isFirstGradeEqual && !isSecondGradeEqual && !isThirdGradeEqual) {
             System.out.printf("[№%s]: оборудование не идентифицировано\n", officeComputerNum);
-        } else {
-            String result = String.format("Нет полного совпадения:" +
-                    "\nБаза данных: [№%s]\nФактический: [№%s%s%s]\n",
-                    serialNum, firstGrade, secondGrade, thirdGrade).replace("-1", "_");
-            System.out.println(result);
-        }
-        */
-        boolean firstGrade = (serialNum / 100) == (officeComputerNum / 100);
-        boolean secondGrade = ((serialNum / 10) % 10) == ((officeComputerNum / 10) % 10);
-        boolean thirdGrade = (serialNum % 10) == (officeComputerNum % 10);
-        if (firstGrade == false && secondGrade == false && thirdGrade == false) {
-            System.out.printf("[№%s]: оборудование не идентифицировано\n", officeComputerNum);
-        } else if (firstGrade == true && secondGrade == true && thirdGrade == true) {
+        } else if (isFirstGradeEqual && isSecondGradeEqual && isThirdGradeEqual) {
             System.out.printf("[№%s]: компьютер на 3-м этаже в кабинете 2\n", officeComputerNum);
         } else {
-            int firstDigit = officeComputerNum / 100;
-            if (!firstGrade) {
-                firstDigit = '_';
-            }
-            int secondDigit = (officeComputerNum / 10) % 10;
-            if (!secondGrade) {
-                secondDigit = '_';
-            }
-            int thirdDigit = officeComputerNum % 10;
-            if (!thirdGrade) {
-                thirdDigit = '_';
-            }
-            String result = String.format("Нет полного совпадения:" +
-                    "\nБаза данных: [№%s]\nФактический: [№%s%s%s]\n",
-                    serialNum, firstDigit, secondDigit, thirdDigit).replace("95", "_");
-            System.out.println(result);
+            char firstDigit = isFirstGradeEqual ? (char) ('0' + (officeComputerNum / 100)) : '_';
+            char secondDigit = isSecondGradeEqual ? (char) ('0' + ((officeComputerNum / 10) % 10)) : '_';
+            char thirdDigit = isThirdGradeEqual ? (char) ('0' + (officeComputerNum % 10)) : '_';
+            System.out.printf("Нет полного совпадения:" +
+                    "\nБаза данных: [№%s]\nФактический: [№%c%c%c]\n",
+                    serialNum, firstDigit, secondDigit, thirdDigit);
         }
 
         System.out.println("\n6. ПОДСЧЕТ НАЧИСЛЕННЫХ БАНКОМ %");
