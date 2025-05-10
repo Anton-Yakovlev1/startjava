@@ -49,7 +49,7 @@ public class CyclesTheme {
 
         System.out.println("\n4. ВЫВОД ЧИСЕЛ В НЕСКОЛЬКО СТРОК");
 
-        /* Работающая версия кода, но до конца не понял почему (подсмотрено на https://translated.turbopages
+        /* Работающая версия кода, но до конца не понял как (подсмотрено на https://translated.turbopages
                 .org/proxy_u/en-ru.ru.83757b9f-68175b5f-6510e8cf-74722d776562/https/stackoverflow
                 .com/questions/27092911/display-five-numbers-per-line-in-java)
         */
@@ -114,11 +114,19 @@ public class CyclesTheme {
         int number = 2234321;
         System.out.println("Исходное число: " + number);
         int reversed = 0;
+        int twosNumber = 0;
         while (number != 0) {
-            int digit = number % 10; 
-            reversed = reversed * 10 + digit; 
+            int digit = number % 10;
+            if (digit == 2) {
+                twosNumber++;
+            }
+            reversed = reversed * 10 + digit;
             number /= 10;
         }
         System.out.println("Число в обратном порядке: " + reversed);
+        System.out.println("Количество двоек: " + twosNumber);
+        boolean isPalindrome = number == reversed;
+        boolean isTwosNumberEven = (twosNumber % 2) == 0;
+        System.out.printf("%s - %s %s (%s) количеством двоек\n", reversed, isPalindrome ? "палиндром" : "не палиндром", isTwosNumberEven ? "с четным" : "с нечетным", twosNumber);
     }
 }
