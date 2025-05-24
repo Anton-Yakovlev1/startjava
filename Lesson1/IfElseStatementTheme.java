@@ -79,19 +79,18 @@ public class IfElseStatementTheme {
         System.out.println("\n5. ИНВЕНТАРИЗАЦИЯ");
         int serialNum = 936;
         int officeComputerNum = 986;
-        boolean isFirstGradeEqual = (serialNum / 100) == (officeComputerNum / 100);
-        boolean isSecondGradeEqual = ((serialNum / 10) % 10) == ((officeComputerNum / 10) % 10);
-        boolean isThirdGradeEqual = (serialNum % 10) == (officeComputerNum % 10);
-        if (!isFirstGradeEqual && !isSecondGradeEqual && !isThirdGradeEqual) {
+        boolean isEqualOnes = (serialNum / 100) == (officeComputerNum / 100);
+        boolean isEqualTens = ((serialNum / 10) % 10) == ((officeComputerNum / 10) % 10);
+        boolean isEqualHundreds = (serialNum % 10) == (officeComputerNum % 10);
+        if (!isEqualOnes && !isEqualTens && !isEqualHundreds) {
             System.out.printf("[№%s]: оборудование не идентифицировано\n", officeComputerNum);
-        } else if (isFirstGradeEqual && isSecondGradeEqual && isThirdGradeEqual) {
+        } else if (isEqualOnes && isEqualTens && isEqualHundreds) {
             System.out.printf("[№%s]: компьютер на 3-м этаже в кабинете 2\n", officeComputerNum);
         } else {
-            System.out.printf("Нет полного совпадения:" +
-                    "\nБаза данных: [№%s]\nФактический: [№%c%c%c]\n",
-                    serialNum, isFirstGradeEqual ? ('0' + (officeComputerNum / 100)) : '_',
-                    isSecondGradeEqual ? ('0' + ((officeComputerNum / 10) % 10)) : '_',
-                    isThirdGradeEqual ? ('0' + (officeComputerNum % 10)) : '_');
+            System.out.printf("Нет полного совпадения: \nБаза данных: [№%s]\nФактический: [№%c%c%c]\n",
+                    serialNum, isEqualOnes ? ('0' + (officeComputerNum / 100)) : '_',
+                    isEqualTens ? ('0' + ((officeComputerNum / 10) % 10)) : '_',
+                    isEqualHundreds ? ('0' + (officeComputerNum % 10)) : '_');
         }
 
         System.out.println("\n6. ПОДСЧЕТ НАЧИСЛЕННЫХ БАНКОМ %");
