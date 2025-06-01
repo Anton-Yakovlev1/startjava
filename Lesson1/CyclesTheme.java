@@ -39,7 +39,12 @@ public class CyclesTheme {
         int upper = 24;
         for (int i = 0; i < upper;) {
             for (int j = 0; j < 10; j++) {
-                System.out.printf("%2s", (i % 2 != 0 && i < upper) ? i : (i % 2 != 0 && i >= upper) ? 0 : "");
+                if (i % 2 != 0 && i < upper) {
+                    System.out.printf("%2d ", i);
+                }
+                if (i % 2 != 0 && i >= upper) {
+                    System.out.printf("%2d ", 0);
+                }
                 i++;
             }
             System.out.println();
@@ -89,7 +94,7 @@ public class CyclesTheme {
         int secondHalf = initialNumber % 1000;
         int firstHalfSum = 0;
         int secondHalfSum = 0;
-        while (firstHalf > 0 || secondHalf > 0) {
+        while (firstHalf > 0) {
             int digit = firstHalf % 10;
             firstHalfSum += digit;
             firstHalf /= 10;
@@ -107,8 +112,8 @@ public class CyclesTheme {
         int totalSymbolsCounter = 0;
         boolean hasDigits = false;
         boolean hasSpecialSymbols = false;
-        boolean hasSmallWords = false;
-        boolean hasBigWords = false;
+        boolean hasLowerWords = false;
+        boolean hasUpperWords = false;
         for (int i = 0; i < 8; i++) {
             char symbol = (char) (new Random().nextInt(33, 127));
             if (Character.isDigit(symbol)) {
@@ -118,19 +123,19 @@ public class CyclesTheme {
                 hasSpecialSymbols = true;
             }
             if (Character.isLowerCase(symbol)) {
-                hasSmallWords = true;
+                hasLowerWords = true;
             }
             if (Character.isUpperCase(symbol)) {
-                hasBigWords = true;
+                hasUpperWords = true;
             }
             totalSymbolsCounter++;
             password += symbol;
         }
         System.out.println("Пароль: " + password);
-        if (totalSymbolsCounter >= 8 && hasSmallWords &&
-                hasBigWords && hasSpecialSymbols) {
+        if (totalSymbolsCounter >= 8 && hasLowerWords &&
+                hasUpperWords && hasSpecialSymbols) {
             System.out.println("Надежность: Надежный");
-        } else if (totalSymbolsCounter >= 8 && (hasBigWords || hasDigits)) {
+        } else if (totalSymbolsCounter >= 8 && (hasUpperWords || hasDigits)) {
             System.out.println("Надежность: Средний");
         } else {
             System.out.println("Надежность: Слабый");
