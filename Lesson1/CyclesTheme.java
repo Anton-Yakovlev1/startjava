@@ -37,15 +37,10 @@ public class CyclesTheme {
 
         System.out.println("\n4. ВЫВОД ЧИСЕЛ В НЕСКОЛЬКО СТРОК");
         int upper = 24;
-        for (int i = 0; i < upper;) {
-            for (int j = 0; j < 10; j++) {
-                if (i % 2 != 0 && i < upper) {
-                    System.out.printf("%2d ", i);
-                }
-                if (i % 2 != 0 && i >= upper) {
-                    System.out.printf("%2d ", 0);
-                }
-                i++;
+        for (int i = 1; i < upper;) {
+            for (int j = 0; j < 5; j++) {
+                System.out.printf("%3d", (i < upper ? i : 0));
+                i += 2;
             }
             System.out.println();
         }
