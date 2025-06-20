@@ -10,11 +10,11 @@ public class MyFirstGame {
         int diff = rnd - userNum;
         while (rnd - userNum != 0) {
             if (rnd - userNum < 0) {
-            System.out.println(userNum + " больше того, что загадал компьютер");
-            userNum += diff;
+                System.out.println(userNum + " больше того, что загадал компьютер");
+                userNum += diff;
             } else if (rnd - userNum > 0) {
                 System.out.println(userNum + " меньше того, что загадал компьютер");
-            userNum += diff;
+                userNum += diff;
             }
         }
         System.out.println("Вы победили " + rnd + " = " + userNum);
