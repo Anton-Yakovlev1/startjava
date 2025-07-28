@@ -4,6 +4,39 @@ public class Calculator {
     private int b;
     private char operation;
 
+    public void setA(int a) {
+        this.a = a;
+    }
+
+    public int getA() {
+        return a;
+    }
+
+    public void setB(int b) {
+        this.b = b;
+    }
+
+    public int getB() {
+        return b;
+    }
+
+    public void setOperation(char operation) {
+        if (operation == '+' || operation == '-' || operation == '*' || operation == '/' ||
+                operation == '%' || operation == '^') {
+            this.operation = operation;
+        } else {
+            System.out.println("Ошибка: операция " + operation + " не поддерживается");
+        }
+    }
+
+    public char getOperation() {
+        return operation;
+    }
+
+    public double getResult() {
+        return result;
+    }
+
     public void startCalculation() {
         switch (operation) {
             case '+':
@@ -36,38 +69,5 @@ public class Calculator {
                 }
                 break;
         }
-    }
-
-    public void setA(int a) {
-        this.a = a;
-    }
-
-    public int getA() {
-        return a;
-    }
-
-    public void setB(int b) {
-        this.b = b;
-    }
-
-    public int getB() {
-        return b;
-    }
-
-    public void setOperation(char operation) {
-        if (operation == '+' || operation == '-' || operation == '*' || operation == '/' ||
-                operation == '%' || operation == '^') {
-            this.operation = operation;
-        } else {
-            System.out.println("Ошибка: операция " + operation + " не поддерживается");
-        }
-    }
-
-    public char getOperation() {
-        return operation;
-    }
-
-    public double getResult() {
-        return result;
     }
 }
