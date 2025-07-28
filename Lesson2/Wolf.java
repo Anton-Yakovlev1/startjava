@@ -5,26 +5,6 @@ public class Wolf {
     private int age;
     private String color;
 
-    public void walk() {
-        System.out.println("Идет");
-    }
-
-    public void sit() {
-        System.out.println("Сидит");
-    }
-
-    public void run() {
-        System.out.println("Бежит");
-    }
-
-    public void howl() {
-        System.out.println("Воет");
-    }
-
-    public void hunt() {
-        System.out.println("Охотится");
-    }
-
     public void setGender(String gender) {
         this.gender = gender;
     }
@@ -67,5 +47,25 @@ public class Wolf {
 
     public String getColor() {
         return color;
+    }
+
+      public void walk() {
+        System.out.println("Идет");
+    }
+
+    public void sit() {
+        System.out.println("Сидит");
+    }
+
+    public void run() {
+        System.out.println("Бежит");
+    }
+
+    public void howl() {
+        System.out.println("Воет");
+    }
+
+    public void hunt() {
+        System.out.println("Охотится");
     }
 }
