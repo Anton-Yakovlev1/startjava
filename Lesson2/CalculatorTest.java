@@ -12,21 +12,14 @@ public class CalculatorTest {
             calc.setB(scanner.nextInt());
             System.out.print("Введите знак операции (+, -, *, /, ^, %): ");
             calc.setOperation(scanner.next().charAt(0));
-            if (calc.getB() == 0 && calc.getOperation() == '/') {
-                System.out.println("Ошибка: деление на ноль запрещено");
-            } else {
-                calc.startCalculation();
-            }
+            calc.calculate();
             System.out.print("Результат: ");
             System.out.println(calc.getResult());
 
-            System.out.print("\nХотите продолжить вычисления? [yes/no]: ");
-            answer = scanner.next().trim().toLowerCase();
-
-            while (!answer.equals("yes") && !answer.equals("no")) {
+            do {
                 System.out.print("\nХотите продолжить вычисления? [yes/no]: ");
                 answer = scanner.next().trim().toLowerCase();
-            }
+            } while (!answer.equals("yes") && !answer.equals("no"));
         } while (answer.equals("yes"));
         scanner.close();
     }

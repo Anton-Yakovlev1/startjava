@@ -37,7 +37,7 @@ public class Calculator {
         return result;
     }
 
-    public void startCalculation() {
+    public void calculate() {
         switch (operation) {
             case '+':
                 result = a + b;
@@ -49,22 +49,24 @@ public class Calculator {
                 result = a * b;
                 break;
             case '/':
-                result = (double) a / b; 
+                if (getB() == 0 && getOperation() == '/') {
+                    System.out.println("Ошибка: деление на ноль запрещено");
+                    result = 0;
+                } else {
+                    result = (double) a / b;
+                }
                 break;
             case '%':
                 result = a % b;
                 break;
             case '^':
+                result = 1;
+                for (int i = 1; i <= Math.abs(b); i++) {
+                    result *= a;
+                }
                 if (b >= 0) {
-                    result = 1;
-                    for (int i = 1; i <= b; i++) {
-                        result *= a;
-                    }
+                    result = result;
                 } else {
-                    result = 1;
-                    for (int i = -1; i >= b; i--) {
-                        result *= a;
-                    }
                     result = 1 / result;
                 }
                 break;
