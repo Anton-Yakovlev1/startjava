@@ -8,16 +8,8 @@ public class Calculator {
         this.a = a;
     }
 
-    public int getA() {
-        return a;
-    }
-
     public void setB(int b) {
         this.b = b;
-    }
-
-    public int getB() {
-        return b;
     }
 
     public void setOperation(char operation) {
@@ -27,10 +19,6 @@ public class Calculator {
         } else {
             System.out.println("Ошибка: операция " + operation + " не поддерживается");
         }
-    }
-
-    public char getOperation() {
-        return operation;
     }
 
     public double getResult() {
@@ -49,7 +37,7 @@ public class Calculator {
                 result = a * b;
                 break;
             case '/':
-                if (getB() == 0 && getOperation() == '/') {
+                if (b == 0 && operation == '/') {
                     System.out.println("Ошибка: деление на ноль запрещено");
                     result = 0;
                 } else {
