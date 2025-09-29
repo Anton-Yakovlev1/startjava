@@ -39,7 +39,6 @@ public class Calculator {
             case '/':
                 if (b == 0 && operation == '/') {
                     System.out.println("Ошибка: деление на ноль запрещено");
-                    result = 0;
                 } else {
                     result = (double) a / b;
                 }
@@ -52,11 +51,7 @@ public class Calculator {
                 for (int i = 1; i <= Math.abs(b); i++) {
                     result *= a;
                 }
-                if (b >= 0) {
-                    result = result;
-                } else {
-                    result = 1 / result;
-                }
+                result = (b >= 0) ? result : 1 / result;
                 break;
         }
     }
