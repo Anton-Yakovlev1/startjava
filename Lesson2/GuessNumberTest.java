@@ -13,7 +13,6 @@ public class GuessNumberTest {
 
         String answer = "";
         do {
-            System.out.println("\nЧисло компьютера: " + game.getTargetNum());
             game.play();
             do {
                 System.out.print("\nХотите продолжить игру? [yes/no]: ");

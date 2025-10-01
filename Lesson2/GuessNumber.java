@@ -3,9 +3,15 @@ import java.util.Scanner;
 public class GuessNumber {
     private Player playerOne;
     private Player playerTwo;
+    private Player currentPlayer;
     private int targetNum;
-    private boolean gameOver;
+    private boolean isGameFinished;
+    private int guess;
     Scanner scanner = new Scanner(System.in);
+
+    public void setGuess(int guess) {
+        this.guess = guess;
+    }
 
     public int getTargetNum() {
         return targetNum;
@@ -19,25 +25,28 @@ public class GuessNumber {
 
     private void resetGame() {
         targetNum = 1 + (int) (Math.random() * 100);
-        gameOver = false;
+        isGameFinished = false;
+    }
+
+    public void numberCheck() {
+        if (guess == targetNum) {
+            System.out.println(currentPlayer.getName() + " выиграл");
+            isGameFinished = true;
+        } else if (guess < 1 || guess > 100) {
+            System.out.println("Ошибка: введённое число должно быть в диапазоне от 1 до 100");
+        } else {
+            System.out.println("Попробуйте ещё раз");
+            currentPlayer = (currentPlayer == playerOne) ? playerTwo : playerOne;
+        }
     }
 
     public void play() {
-        int turn = 1;
-        while (!gameOver) {
-            Player currentPlayer = (turn % 2 == 1) ? playerOne : playerTwo;
+        System.out.println("\nЧисло компьютера: " + getTargetNum());
+        currentPlayer = playerOne;
+        while (!isGameFinished) {
             System.out.println("\n" + currentPlayer.getName() + ", введите число от 1 до 100:");
-            int guess = scanner.nextInt();
-            
-            if (guess == targetNum) {
-                System.out.println(currentPlayer.getName() + " выиграл");
-                gameOver = true;
-            } else if (guess < 1 || guess > 100) {
-                System.out.println("Ошибка: введённое число должно быть в диапазоне от 1 до 100");
-            } else {
-                System.out.println("Попробуйте ещё раз");
-                turn++;
-            }
+            setGuess(scanner.nextInt());
+            numberCheck();
         }
     }
 
