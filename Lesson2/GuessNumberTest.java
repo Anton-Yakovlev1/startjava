@@ -9,18 +9,14 @@ public class GuessNumberTest {
         System.out.print("\nВведите имя второго игрока: ");
         Player playerTwo = new Player(scanner.nextLine());
 
-        GuessNumber game = new GuessNumber(playerOne, playerTwo);
-
         String answer = "";
         do {
+            GuessNumber game = new GuessNumber(playerOne, playerTwo);
             game.play();
             do {
                 System.out.print("\nХотите продолжить игру? [yes/no]: ");
                 answer = scanner.nextLine().trim().toLowerCase();
             } while (!answer.equals("yes") && !answer.equals("no"));
-            if (answer.equals("yes")) {
-                game.restart();
-            }
         } while (answer.equals("yes"));
 
         System.out.println("Спасибо за игру!");
