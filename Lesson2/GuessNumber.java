@@ -17,13 +17,8 @@ public class GuessNumber {
         currentPlayer = playerOne;
         while (true) {
             inputNumber();
-            if (guess == targetNum) {
-                System.out.println(currentPlayer.getName() + " выиграл");
+            if (!checkNumber()) {
                 break;
-            } else if (guess < targetNum) {
-                System.out.println("Число меньше загаданного. Попробуйте ещё раз");
-            } else {
-                System.out.println("Число больше загаданного. Попробуйте ещё раз");
             }
             switchPlayer();
         }
@@ -35,6 +30,19 @@ public class GuessNumber {
         guess = scanner.nextInt();
         if (guess < 1 || guess > 100) {
             System.out.println("Ошибка: введённое число должно быть в диапазоне от 1 до 100");
+        }
+    }
+
+    public boolean checkNumber() {
+        if (guess == targetNum) {
+            System.out.println(currentPlayer.getName() + " выиграл");
+            return false;
+        } else if (guess < targetNum) {
+            System.out.println("Число меньше загаданного. Попробуйте ещё раз");
+            return true;
+        } else {
+            System.out.println("Число больше загаданного. Попробуйте ещё раз");
+            return true;
         }
     }
 
