@@ -24,7 +24,7 @@ public class Main {
         System.out.println(inputBooleanMethods.areAttemptsRemaining());
         System.out.println(inputBooleanMethods.isEmptyOrWhitespace());
         System.out.println(inputBooleanMethods.isDiceRollEven());
-        System.out.println(inputBooleanMethods.isValidSSDFilePath());
+        System.out.println(inputBooleanMethods.isFilePathValid());
         System.out.println(inputBooleanMethods.doesFileExist());
     }
 
