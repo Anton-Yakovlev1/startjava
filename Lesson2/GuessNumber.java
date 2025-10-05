@@ -17,7 +17,7 @@ public class GuessNumber {
         currentPlayer = playerOne;
         while (true) {
             inputNumber();
-            if (!isGuessed()) {
+            if (isGuessed()) {
                 break;
             }
             switchPlayer();
@@ -36,7 +36,7 @@ public class GuessNumber {
     public boolean isGuessed() {
         if (guess == targetNum) {
             System.out.println(currentPlayer.getName() + " выиграл");
-            return false;
+            return true;
         }
 
         if (guess < targetNum) {
@@ -44,7 +44,7 @@ public class GuessNumber {
         } else {
             System.out.println("Число больше загаданного. Попробуйте ещё раз");
         }
-        return true;
+        return false;
     }
 
     public void switchPlayer() {
