@@ -1,5 +1,5 @@
 public class NonBooleanMethods {
-    public void findLongestWordInSentence() {
+    public void findLongestWord() {
         System.out.println(Methods.getCurrentMethodName() +
                 "() -> найти самое длинное слово в предложении из книги по Java");
     }
@@ -14,7 +14,7 @@ public class NonBooleanMethods {
                 "() -> вычислить среднее значение оценок в школе №1234");
     }
 
-    public void countUniqueWordsInWarAndPeace() {
+    public void countUniqueWords() {
         System.out.println(Methods.getCurrentMethodName() +
                 "() -> подсчитать количество уникальных слов в \"Война и Мир\"");
     }
@@ -24,7 +24,7 @@ public class NonBooleanMethods {
                 "() -> вывести сообщение об ошибке");
     }
 
-    public void synchronizeDataWithStorage() {
+    public void syncDataWithStorage() {
         System.out.println(Methods.getCurrentMethodName() +
                 "() -> синхронизировать данные с облачным хранилищем");
     }
@@ -34,17 +34,17 @@ public class NonBooleanMethods {
                 "() -> восстановить данные из резервной копии от 11.03.2024");
     }
 
-    public void pauseMp3FileDownload() {
+    public void pauseFileDownload() {
         System.out.println(Methods.getCurrentMethodName() +
                 "() -> приостановить загрузку mp3-файла группы \"Ария\"");
     }
 
-    public void resetVacuumCleanerToFactorySettings() {
+    public void resetSettingsToDefault() {
         System.out.println(Methods.getCurrentMethodName() +
                 "() -> сбросить настройки до заводских для пылесоса Mi");
     }
 
-    public void writeContentOnUsbDrive() {
+    public void writeToFile() {
         System.out.println(Methods.getCurrentMethodName() +
                 "() -> записать содержимое в файл по указанному пути на флешку");
     }
@@ -54,17 +54,17 @@ public class NonBooleanMethods {
                 "() -> преобразовать температуру из Цельсия в Фаренгейт");
     }
 
-    public void enterMathExpressionWithThreeArguments() {
+    public void inputMathExpression() {
         System.out.println(Methods.getCurrentMethodName() +
                 "() -> ввести математическое выражение с тремя аргументами");
     }
 
-    public void determineWinnerAmongNfsRacers() {
+    public void determineWinner() {
         System.out.println(Methods.getCurrentMethodName() +
                 "() -> выявить победителя среди гонщиков игры \"Need For Speed\"");
     }
 
-    public void findBookByAuthorName() {
+    public void findBookByAuthor() {
         System.out.println(Methods.getCurrentMethodName() +
                 "() -> найти книгу по имени писателя");
     }
