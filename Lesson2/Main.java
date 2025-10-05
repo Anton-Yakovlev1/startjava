@@ -33,7 +33,7 @@ public class Main {
         System.out.println(bm.isRemainingAttempt());
         System.out.println(bm.isBlank());
         System.out.println(bm.isEvenDiceRoll());
-        System.out.println(bm.isValidFilePath());
+        System.out.println(bm.isValidPath());
         System.out.println(bm.isExistFile());
     }
 }
