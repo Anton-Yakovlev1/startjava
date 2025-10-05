@@ -1,38 +1,39 @@
 public class Main {
-    public static void runNonBooleanMethods(NonBooleanMethods inputNonBooleanMethods) {
-        inputNonBooleanMethods.findLongestWordInSentence();
-        inputNonBooleanMethods.selectMenuItem();
-        inputNonBooleanMethods.calculateAverageScore();
-        inputNonBooleanMethods.countUniqueWordsInWarAndPeace();
-        inputNonBooleanMethods.showErrorMessage();
-        inputNonBooleanMethods.synchronizeDataWithStorage();
-        inputNonBooleanMethods.restoreDataFromBackup();
-        inputNonBooleanMethods.pauseMp3FileDownload();
-        inputNonBooleanMethods.resetVacuumCleanerToFactorySettings();
-        inputNonBooleanMethods.writeContentOnUsbDrive();
-        inputNonBooleanMethods.convertCelsiusToFahrenheit();
-        inputNonBooleanMethods.enterMathExpressionWithThreeArguments();
-        inputNonBooleanMethods.determineWinnerAmongNfsRacers();
-        inputNonBooleanMethods.findBookByAuthorName();
-    }
-
-    public static void runBooleanMethods(BooleanMethods inputBooleanMethods) {
-        System.out.println(inputBooleanMethods.isProgramContinuing());
-        System.out.println(inputBooleanMethods.hasUniqueDigit());
-        System.out.println(inputBooleanMethods.isLetterEntered());
-        System.out.println(inputBooleanMethods.hasEqualDigits());
-        System.out.println(inputBooleanMethods.areAttemptsRemaining());
-        System.out.println(inputBooleanMethods.isEmptyOrWhitespace());
-        System.out.println(inputBooleanMethods.isDiceRollEven());
-        System.out.println(inputBooleanMethods.isFilePathValid());
-        System.out.println(inputBooleanMethods.doesFileExist());
-    }
-
     public static void main(String[] args) {
-        NonBooleanMethods nonBooleanMethods = new NonBooleanMethods();
-        BooleanMethods booleanMethods = new BooleanMethods();
+        runNonBooleanMethods();
+        runBooleanMethods();
+    }
 
-        runNonBooleanMethods(nonBooleanMethods);
-        runBooleanMethods(booleanMethods);
+    private static void runNonBooleanMethods() {
+        NonBooleanMethods nonBm = new NonBooleanMethods();
+
+        nonBm.findLongestWord();
+        nonBm.selectMenuItem();
+        nonBm.calculateAverageScore();
+        nonBm.countUniqueWords();
+        nonBm.showErrorMessage();
+        nonBm.syncDataWithStorage();
+        nonBm.restoreDataFromBackup();
+        nonBm.pauseFileDownload();
+        nonBm.resetSettingsToDefault();
+        nonBm.writeToFile();
+        nonBm.convertCelsiusToFahrenheit();
+        nonBm.inputMathExpression();
+        nonBm.determineWinner();
+        nonBm.findBookByAuthor();
+    }
+
+    private static void runBooleanMethods() {
+        BooleanMethods bm = new BooleanMethods();
+
+        System.out.println(bm.shouldContinue());
+        System.out.println(bm.hasUniqueDigit());
+        System.out.println(bm.isLetter());
+        System.out.println(bm.hasEqualDigits());
+        System.out.println(bm.isRemainingAttempt());
+        System.out.println(bm.isBlank());
+        System.out.println(bm.isEvenDiceRoll());
+        System.out.println(bm.isValidFilePath());
+        System.out.println(bm.isExistFile());
     }
 }

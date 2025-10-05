@@ -1,5 +1,5 @@
 public class BooleanMethods {
-    public boolean isProgramContinuing() {
+    public boolean shouldContinue() {
         System.out.print(Methods.getCurrentMethodName() +
                 "() -> программа выполняется далее или завершается? ");
         return true;
@@ -11,7 +11,7 @@ public class BooleanMethods {
         return true;
     }
 
-    public boolean isLetterEntered() {
+    public boolean isLetter() {
         System.out.print(Methods.getCurrentMethodName() +
                 "() -> пользователь ввел букву или что-то другое? ");
         return false;
@@ -23,31 +23,31 @@ public class BooleanMethods {
         return true;
     }
 
-    public boolean areAttemptsRemaining() {
+    public boolean isRemainingAttempt() {
         System.out.print(Methods.getCurrentMethodName() +
                 "() -> в игре \"Марио\" остались попытки? ");
         return false;
     }
 
-    public boolean isEmptyOrWhitespace() {
+    public boolean isBlank() {
         System.out.print(Methods.getCurrentMethodName() +
                 "() -> пользователь ввёл пустую строку или из одних пробелов? ");
         return true;
     }
 
-    public boolean isDiceRollEven() {
+    public boolean isEvenDiceRoll() {
         System.out.print(Methods.getCurrentMethodName() +
                 "() -> на кубике, который бросил компьютер, выпало четное число? ");
         return true;
     }
 
-    public boolean isFilePathValid() {
+    public boolean isValidFilePath() {
         System.out.print(Methods.getCurrentMethodName() +
                 "() -> путь до файла, который вы ищите на ssd, действительный? ");
         return false;
     }
 
-    public boolean doesFileExist() {
+    public boolean isExistFile() {
         System.out.print(Methods.getCurrentMethodName() +
                 "() -> файл по указанному адресу существует? ");
         return false;
