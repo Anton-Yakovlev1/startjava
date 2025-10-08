@@ -1,3 +1,5 @@
+package com.startjava.lesson1.base;
+
 public class MyFirstGame {
     public static void main(String[] args) {
         int targetNum = 1 + (int) (Math.random() * 100);

@@ -1,4 +1,4 @@
-package git.startjava.lesson1;
+package com.startjava.lesson_2_3.rps;
 
 import java.util.Random;
 

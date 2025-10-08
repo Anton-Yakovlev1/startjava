@@ -1,3 +1,5 @@
+package com.startjava.lesson1.final_;
+
 public class Calculator {
     public static void main(String[] args) {
         double result = 0;
