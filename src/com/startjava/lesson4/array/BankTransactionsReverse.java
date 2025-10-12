@@ -1,11 +1,11 @@
 package com.startjava.lesson4.array;
 
 public class BankTransactionsReverse {
-    static int[] transactions1 = new int[0];
-    static int[] transactions2 = null;
-    static int[] transactions3 = {5};
-    static int[] transactions4 = {6, 8, 9, 1};
-    static int[] transactions5 = {13, 8, 5, 3, 2, 1, 1};
+    private static int[] transactions1 = new int[0];
+    private static int[] transactions2 = null;
+    private static int[] transactions3 = {5};
+    private static int[] transactions4 = {6, 8, 9, 1};
+    private static int[] transactions5 = {13, 8, 5, 3, 2, 1, 1};
 
     public static void main(String[] args) {
         System.out.print("\nИсходные транзакции: ");
@@ -34,7 +34,7 @@ public class BankTransactionsReverse {
         printTransactions(reverseTransactions(transactions5));
     }
 
-    public static void printTransactions(int[] transactions) {
+    private static void printTransactions(int[] transactions) {
         if (transactions == null) {
             System.out.println("null");
         } else if (transactions.length == 0) {
@@ -51,7 +51,7 @@ public class BankTransactionsReverse {
         }
     }
 
-    public static int[] reverseTransactions(int[] transactions) {
+    private static int[] reverseTransactions(int[] transactions) {
         if (transactions == null || transactions.length == 0) {
             return transactions;
         }
