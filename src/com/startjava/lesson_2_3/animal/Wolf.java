@@ -51,7 +51,7 @@ public class Wolf {
         return color;
     }
 
-      public void walk() {
+    public void walk() {
         System.out.println("Идет");
     }
 
