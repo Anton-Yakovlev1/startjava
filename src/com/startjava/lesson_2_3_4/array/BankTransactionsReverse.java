@@ -1,37 +1,27 @@
 package com.startjava.lesson_2_3_4.array;
 
+import java.util.Arrays;
+
 public class BankTransactionsReverse {
-    private static int[] transactions1 = new int[0];
-    private static int[] transactions2 = null;
-    private static int[] transactions3 = {5};
-    private static int[] transactions4 = {6, 8, 9, 1};
-    private static int[] transactions5 = {13, 8, 5, 3, 2, 1, 1};
-
     public static void main(String[] args) {
-        System.out.print("\nИсходные транзакции: ");
-        printTransactions(transactions1);
-        System.out.print("В обратном порядке: ");
-        printTransactions(reverseTransactions(transactions1));
+        int[] transactions1 = new int[0];
+        int[] transactions2 = null;
+        int[] transactions3 = {5};
+        int[] transactions4 = {6, 8, 9, 1};
+        int[] transactions5 = {13, 8, 5, 3, 2, 1, 1};
 
-        System.out.print("\nИсходные транзакции: ");
-        printTransactions(transactions2);
-        System.out.print("В обратном порядке: ");
-        printTransactions(reverseTransactions(transactions2));
+        displayTransactions(transactions1);
+        displayTransactions(transactions2);
+        displayTransactions(transactions3);
+        displayTransactions(transactions4);
+        displayTransactions(transactions5);
+    }
 
+    private static void displayTransactions(int[] transactions) {
         System.out.print("\nИсходные транзакции: ");
-        printTransactions(transactions3);
+        printTransactions(transactions);
         System.out.print("В обратном порядке: ");
-        printTransactions(reverseTransactions(transactions3));
-
-        System.out.print("\nИсходные транзакции: ");
-        printTransactions(transactions4);
-        System.out.print("В обратном порядке: ");
-        printTransactions(reverseTransactions(transactions4));
-
-        System.out.print("\nИсходные транзакции: ");
-        printTransactions(transactions5);
-        System.out.print("В обратном порядке: ");
-        printTransactions(reverseTransactions(transactions5));
+        printTransactions(reverseTransactions(transactions));
     }
 
     private static void printTransactions(int[] transactions) {
@@ -40,14 +30,7 @@ public class BankTransactionsReverse {
         } else if (transactions.length == 0) {
             System.out.println("[]");
         } else {
-            System.out.print("[");
-            for (int i = 0; i < transactions.length; i++) {
-                System.out.print(transactions[i]);
-                if (i < transactions.length - 1) {
-                    System.out.print(", ");
-                }
-            }
-            System.out.println("]");
+            System.out.println(Arrays.toString(transactions));
         }
     }
 
