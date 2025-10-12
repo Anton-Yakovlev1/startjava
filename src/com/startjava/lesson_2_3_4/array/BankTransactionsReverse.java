@@ -1,4 +1,4 @@
-package com.startjava.lesson4.array;
+package com.startjava.lesson_2_3_4.array;
 
 public class BankTransactionsReverse {
     private static int[] transactions1 = new int[0];
