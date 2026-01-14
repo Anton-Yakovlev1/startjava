@@ -40,8 +40,9 @@ public class BankTransactionsReverse {
         }
 
         int[] reversed = new int[transactions.length];
-        for (int i = 0; i < transactions.length; i++) {
-            reversed[i] = transactions[transactions.length - 1 - i];
+        int index = transactions.length - 1;
+        for (int transaction : transactions) {
+            reversed[index--] = transaction;
         }
         return reversed;
     }
