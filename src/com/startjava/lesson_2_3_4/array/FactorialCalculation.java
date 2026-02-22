@@ -58,6 +58,15 @@ public class FactorialCalculation {
         System.out.println(output);
     }
 
+    public static long factorial(int number) {
+        if (number == 0 || number == 1) return 1;
+        long factorial = 1;
+        for (int i = 2; i <= number; i++) {
+            factorial *= i;
+        }
+        return factorial;
+    }
+
     private static String buildFactorialExpression(int number, long result) {
         StringBuilder expression = new StringBuilder();
         expression.append(number).append("! = ");
@@ -71,14 +80,5 @@ public class FactorialCalculation {
         }
         expression.append(result);
         return expression.toString();
-    }
-
-    public static long factorial(int number) {
-        if (number == 0 || number == 1) return 1;
-        long factorial = 1;
-        for (int i = 2; i <= number; i++) {
-            factorial *= i;
-        }
-        return factorial;
     }
 }
